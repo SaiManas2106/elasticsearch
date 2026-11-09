@@ -32,6 +32,12 @@ public class SageMakerOpenAiTaskSettingsTests extends InferenceSettingsTestCase<
         return randomApiTaskSettings();
     }
 
+    @Override
+    protected SageMakerOpenAiTaskSettings mutateInstance(SageMakerOpenAiTaskSettings instance) {
+        // SageMakerOpenAiTaskSettings is a record, so Java handles field-by-field equality.
+        return null;
+    }
+
     static SageMakerOpenAiTaskSettings randomApiTaskSettings() {
         return new SageMakerOpenAiTaskSettings(randomOptionalString());
     }

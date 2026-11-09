@@ -45,6 +45,12 @@ public class SageMakerOpenAiServiceSettingsTests extends InferenceSettingsTestCa
         return randomApiServiceSettings();
     }
 
+    @Override
+    protected OpenAiTextEmbeddingPayload.ApiServiceSettings mutateInstance(OpenAiTextEmbeddingPayload.ApiServiceSettings instance) {
+        // ApiServiceSettings is a record, so Java handles field-by-field equality.
+        return null;
+    }
+
     static OpenAiTextEmbeddingPayload.ApiServiceSettings randomApiServiceSettings() {
         var dimensions = randomBoolean() ? randomIntBetween(1, 100) : null;
         // When dimensions are present they may have been set by the user or auto-discovered, so exercise both.
